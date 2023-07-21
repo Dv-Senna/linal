@@ -1,2 +1,2 @@
 # linal
-A C++ linear algebra library
+A C++ essential math library

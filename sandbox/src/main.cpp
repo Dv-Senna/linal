@@ -8,10 +8,24 @@ int main(int, char *[])
 {
 	try
 	{
-		linal::Vector<float, 2> vec1 {};
-		linal::Vector<int, 2> vec2 {1, 2};
-		vec1 = vec2;
-		std::cout << vec1[0] << ", " << vec1[1] << std::endl;
+		linal::Vec2<float> vec1 {};
+		linal::Vec2<float> vec2 {1.f};
+		linal::Vec2<float> vec3 {2.f, 3.f};
+		linal::Vec2<float> vec4 {vec2};
+		linal::Vec2<float> vec5 {std::move(vec3)};
+		std::cout << vec1 << std::endl;
+		std::cout << vec2 << std::endl;
+		std::cout << vec3 << std::endl;
+		std::cout << vec4 << std::endl;
+		std::cout << vec5 << std::endl;
+		vec5 += vec2;
+		std::cout << vec5 << std::endl;
+		vec5 *= 2.f;
+		std::cout << vec5 << std::endl;
+
+		std::cout << (vec5 == linal::Vec2(6, 7)) << std::endl;
+		std::cout << linal::length(vec5) << std::endl;
+		std::cout << linal::lengthSquare(vec5) << std::endl;
 	}
 
 	catch (const std::exception &exception)
